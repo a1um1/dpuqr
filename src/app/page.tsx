@@ -1,6 +1,4 @@
 import LoginForm from "@/app/form";
-import logout from "@/app/logout";
-import LogoutBtn from "@/app/logoutBtn";
 import { Button } from "@/components/ui/button";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
@@ -37,27 +35,25 @@ export default async function Home() {
 	if (!res.qrEncoded) return <LoginForm />;
 	return (
 		<>
-			<div className="contianer mx-auto max-w-lg border-2 my-12 p-6 rounded-2xl">
-				<div className="mb-4 text-lg flex justify-between items-center">
-					{res.studentFullName}
-					<form action={logout}>
-						<Button className="px-4" size="lg" type="submit">
-							ออกจากระบบ
-						</Button>
-					</form>
-				</div>
-				<QRCode
-					size={256}
-					style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-					value={res.qrEncoded}
-					viewBox="0 0 256 256"
-				/>
-				<form action={refresh}>
-					<Button className="w-full mt-5" size="lg" type="submit">
-						รีเฟรช QR
+			<div className="mb-4 text-lg flex justify-between items-center">
+				{res.studentFullName}
+				<form action={logout}>
+					<Button className="px-4" size="lg" type="submit">
+						ออกจากระบบ
 					</Button>
 				</form>
 			</div>
+			<QRCode
+				size={256}
+				style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+				value={res.qrEncoded}
+				viewBox="0 0 256 256"
+			/>
+			<form action={refresh}>
+				<Button className="w-full mt-5" size="lg" type="submit">
+					รีเฟรช QR
+				</Button>
+			</form>
 		</>
 	);
 }

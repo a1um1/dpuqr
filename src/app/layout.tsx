@@ -1,17 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-
-const geistSans = localFont({
-	src: "./fonts/GeistVF.woff",
-	variable: "--font-geist-sans",
-	weight: "100 900",
-});
-const geistMono = localFont({
-	src: "./fonts/GeistMonoVF.woff",
-	variable: "--font-geist-mono",
-	weight: "100 900",
-});
 
 export const metadata: Metadata = {
 	title: "DPU QR",
@@ -24,10 +12,18 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-			>
-				{children}
+			<body>
+				<div className="contianer mx-auto max-w-lg border-2 mt-12 p-6 rounded-2xl">
+					{children}
+				</div>
+				<p className="mb-12 mt-4 text-center text-sm">
+					Not affliate with DPU
+					<br />
+					Made with{" "}
+					<a href="https://a1um1.github.io" rel="noreferrer" target="_blank">
+						🦊 a1um1
+					</a>
+				</p>
 			</body>
 		</html>
 	);

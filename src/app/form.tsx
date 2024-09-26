@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import QRCode from "react-qr-code";
 import genQR from "./qr";
 
 export default function LoginForm() {
@@ -19,7 +18,7 @@ export default function LoginForm() {
 	};
 	return (
 		<>
-			<div className="contianer mx-auto max-w-lg border-2 my-12 p-6 rounded-2xl">
+			<form action="">
 				<label>Username</label>
 				<Input value={user} onChange={(e) => setUser(e.currentTarget.value)} />
 				<br />
@@ -33,7 +32,7 @@ export default function LoginForm() {
 				<Button onClick={handleGen} type="button" className="w-full" size="lg">
 					Login
 				</Button>
-			</div>
+			</form>
 		</>
 	);
 }
