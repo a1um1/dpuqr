@@ -17,7 +17,7 @@ export default function RootLayout({
 					{children}
 				</div>
 				<p className="mb-12 mt-4 text-center text-sm">
-					Not affliate with DPU
+					Not affiliate with DPU
 					<br />
 					Made with{" "}
 					<a href="https://a1um1.github.io" rel="noreferrer" target="_blank">

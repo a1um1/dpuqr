@@ -18,8 +18,8 @@ export default function LoginForm() {
 	};
 	return (
 		<>
-			<form action="">
-				<label>Username</label>
+			<form onSubmit={handleGen}>
+				<label>Username (ไม่ต้องใส่ @dpu.ac.th)</label>
 				<Input value={user} onChange={(e) => setUser(e.currentTarget.value)} />
 				<br />
 				<label>Password</label>
@@ -29,7 +29,7 @@ export default function LoginForm() {
 					onChange={(e) => setPassword(e.currentTarget.value)}
 				/>
 				<br />
-				<Button onClick={handleGen} type="button" className="w-full" size="lg">
+				<Button onClick={handleGen} type="submit" className="w-full" size="lg">
 					Login
 				</Button>
 			</form>
