@@ -16,23 +16,27 @@ export default function LoginForm({
 	const router = useRouter();
 	const handleGen = () => {
 		setIsRefreshing(true);
-		genQR({ username: user, password })
-			.then((res) => {
-				if (res?.error) return alert(res.error);
-				router.refresh();
-			})
-			.finally(() => setIsRefreshing(false));
+		genQR({ username: user, password }).then((res) => {
+			if (res?.error) {
+				alert(res.error);
+				setIsRefreshing(false);
+				return;
+			}
+			router.refresh();
+		});
 	};
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		if (needTokenRefresh) {
 			setIsRefreshing(true);
-			refreshToken()
-				.then((res) => {
-					if (res?.error) return alert(res.error);
-					router.refresh();
-				})
-				.finally(() => setIsRefreshing(false));
+			refreshToken().then((res) => {
+				if (res?.error) {
+					alert(res.error);
+					setIsRefreshing(false);
+					return;
+				}
+				router.refresh();
+			});
 		}
 	}, [needTokenRefresh]);
 	if (isRefreshing)
