@@ -30,7 +30,7 @@ export default async function Home() {
 			}),
 		},
 	);
-
+	if (!qrFetch.ok) return <LoginForm />;
 	const res = await qrFetch.json();
 	if (!res.qrEncoded) return <LoginForm />;
 	return (
