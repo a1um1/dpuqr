@@ -1,7 +1,5 @@
 "use server";
 
-import { error } from "console";
-
 export default async function genQR({
 	username,
 	password,
