@@ -19,7 +19,7 @@ export default function RootLayout({
 				<p className="mb-12 mt-4 text-center text-sm">
 					Not affiliate with DPU
 					<br />
-					Made with{" "}
+					Made by{" "}
 					<a href="https://a1um1.github.io" rel="noreferrer" target="_blank">
 						🦊 a1um1
 					</a>
