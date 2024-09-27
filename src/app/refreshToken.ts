@@ -38,6 +38,10 @@ const refreshToken = async () => {
 			access_token: response.access_token,
 			refresh_token: response.refresh_token,
 		}),
+		{
+			expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
+			httpOnly: true,
+		},
 	);
 	redirect("/");
 	return { success: true };
